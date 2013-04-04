@@ -1,0 +1,48 @@
+package wte.domain;
+
+class WereToEat;
+
+class Restaurant {
+  String name;
+}
+
+class Location {
+  String name;
+  Integer phoneNumber;
+}
+
+class Menu {
+  String name;
+}
+
+class Food {
+  String name;
+  Float price;
+}
+
+relation MenuContainsFood {
+  Menu playsRole menu;
+  Food playsRole food {
+    multiplicity 1..*;
+  }
+}
+
+
+relation RestaurantContainsMenu {
+  Restaurant playsRole restaurant;
+  Menu playsRole menu {
+    multiplicity 1..*;
+  }
+}
+
+relation RestaurantContainsLocation {
+  Restaurant playsRole restaurant;
+  Location playsRole Location;
+}
+
+relation WereToEatContainsRestaurants {
+  WereToEat playsRole weretoeat;
+  Restaurant playsRole restaurant {
+    multiplicity *;
+  }
+}
